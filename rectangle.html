@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="DemoCanvas" width="500" height="500" style="border: 1px solid #000000;"></canvas>
+</body>
+</html>
+<script>
+    class Rectangle{
+        constructor(length, width){
+            this.length=length;
+            this.width=width;
+        }
+        getPerimeter(){
+            let P=(this.length+this.width)*2;
+            return P;
+        }
+        getArea(){
+            let S=this.length*this.width;
+            return S;
+        }
+        drawRectangle(){
+            let canvas = document.getElementById("DemoCanvas");
+            let ctx = canvas.getContext('2d');
+            ctx.strokeStyle = "red";
+            ctx.strokeRect(5,5,this.length,this.width);
+        }
+        setAgain(length1,width1){
+            this.length=length1;
+            this.width=width1;
+        }
+    }
+    let rectangle=new Rectangle(300,400);
+    document.write('S= '+rectangle.getArea()+'<br>');
+    document.write('P= '+rectangle.getPerimeter()+'<br>');
+    rectangle.drawRectangle();
+    rectangle.setAgain(400,100);
+    document.write('S= '+rectangle.getArea()+'<br>');
+    document.write('P= '+rectangle.getPerimeter()+'<br>');
+    rectangle.drawRectangle();
+</script>
